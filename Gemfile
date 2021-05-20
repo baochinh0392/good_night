@@ -5,9 +5,11 @@ ruby '3.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.1'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
+# Use postgresql as the database for Active Record
+gem 'pg', '1.2.3'
 # Use Puma as the app server
+# PostgreSQL’s full text search
+gem 'pg_search', '2.3.5'
 gem 'puma', '~> 5.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.7'
@@ -21,7 +23,7 @@ gem 'puma', '~> 5.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
-
+gem 'fast_jsonapi', '1.5'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
@@ -34,7 +36,20 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'dotenv-rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'sidekiq', '6.1.2'# Simple, efficient background processing for Ruby
+gem 'sidekiq-cron', '1.2.0'
+#rspec
+gem 'faker', '2.15.1'
+gem 'rspec-rails', '4.0.2'
+gem 'shoulda-matchers', '4.4.1'
+gem 'factory_bot_rails', '6.1.0'
+# Dry transation
+gem 'dry-transaction', '~> 0.13.2'
+# Dry validation
+gem 'dry-validation', '~> 1.6.0'
+gem 'pagy'
