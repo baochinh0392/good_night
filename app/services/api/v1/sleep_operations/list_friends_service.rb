@@ -22,6 +22,7 @@ module Api
         def sleep_operations(params)
           user = ::User.find(params[:user_id])
           if user.present?
+            debugger
             friend_ids = user.friends.pluck(:id)
             records = ::SleepOperation.where(user_id: friend_ids).order(duration: :desc)
             Success(records)

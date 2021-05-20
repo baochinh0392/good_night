@@ -21,7 +21,7 @@ module Api
 
         def get_up(params)
           record = ::SleepOperation.where(user_id: params[:user_id]).last
-          record[:duration] =  params[:get_up_time].to_datetime - record.sleep_time.to_datetime
+          record[:duration] =  params[:get_up_time].to_time - record.sleep_time.to_time
           if record.update(params)
             Success(record)
           else

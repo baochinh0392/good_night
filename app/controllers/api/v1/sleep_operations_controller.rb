@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 class Api::V1::SleepOperationsController < Api::V1::BaseController
   def index
-    Api::V1::SleepOperations::ListContract.new.call(parameters) do |response|
+    Api::V1::SleepOperations::ListService.new.call(parameters) do |response|
       response.success do |data|
-        json_response(data)
+        pagy, records = pagy(data)
+        json_response(V1::SleepOperations::SleepOperationSerializer.new(data, meta: pagy_metadata(pagy)))
       end
 
       response.failure do |error|
@@ -15,7 +16,7 @@ class Api::V1::SleepOperationsController < Api::V1::BaseController
   def sleep
     Api::V1::SleepOperations::SleepService.new.call(parameters) do |response|
       response.success do |data|
-        json_response(data)
+        json_response(V1::SleepOperations::SleepOperationSerializer.new(data))
       end
 
       response.failure do |error|
@@ -27,7 +28,7 @@ class Api::V1::SleepOperationsController < Api::V1::BaseController
   def get_up
     Api::V1::SleepOperations::GetUpService.new.call(parameters) do |response|
       response.success do |data|
-        json_response(data)
+        json_response(V1::SleepOperations::SleepOperationSerializer.new(data))
       end
 
       response.failure do |error|
@@ -36,10 +37,11 @@ class Api::V1::SleepOperationsController < Api::V1::BaseController
     end
   end
 
-  def friends_sleep
-    Api::V1::SleepOperations::ListFriendsContract.new.call(parameters) do |response|
+  def list_friends
+    Api::V1::SleepOperations::ListFriendsService.new.call(parameters) do |response|
       response.success do |data|
-        json_response(data)
+        pagy, records = pagy(data)
+        json_response(V1::SleepOperations::SleepOperationSerializer.new(data, meta: pagy_metadata(pagy)))
       end
 
       response.failure do |error|
