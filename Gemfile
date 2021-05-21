@@ -43,6 +43,9 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'sidekiq', '6.1.2'# Simple, efficient background processing for Ruby
 gem 'sidekiq-cron', '1.2.0'
+#add swagger
+gem 'rswag', '2.3.1'
+
 #rspec
 gem 'faker', '2.15.1'
 gem 'rspec-rails', '4.0.2'
