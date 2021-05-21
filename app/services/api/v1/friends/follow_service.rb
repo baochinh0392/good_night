@@ -20,11 +20,16 @@ module Api
         end
 
         def follow(params)
-          record = ::FollowFriend.new(params)
-          if record.save
+          record = FollowFriend.where(params).first
+          if record.present?
             Success(record)
           else
-            Failure({ msgs: record.errors.full_messages, status: 422 })
+            record = ::FollowFriend.new(params)
+            if record.save
+              Success(record)
+            else
+              Failure({ msgs: record.errors.full_messages, status: 422 })
+            end
           end
         end
       end

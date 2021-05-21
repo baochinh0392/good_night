@@ -3,7 +3,7 @@ class Api::V1::FriendsController < Api::V1::BaseController
   def follow
     Api::V1::Friends::FollowService.new.call(parameters) do |response|
       response.success do |data|
-        json_response(data)
+        json_response(V1::Friends::BaseSerializer.new(data))
       end
 
       response.failure do |error|
@@ -15,7 +15,7 @@ class Api::V1::FriendsController < Api::V1::BaseController
   def unfollow
     Api::V1::Friends::UnfollowService.new.call(parameters) do |response|
       response.success do |data|
-        json_response(data)
+        json_response(V1::Friends::BaseSerializer.new(data))
       end
 
       response.failure do |error|

@@ -11,7 +11,6 @@ module Api
         def validate(params)
           contract = SleepOperations::ListContract.new
           result = contract.call(params.to_h)
-
           if result.success?
             Success(result.to_h)
           else
