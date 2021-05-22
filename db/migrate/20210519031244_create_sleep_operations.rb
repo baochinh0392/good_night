@@ -4,7 +4,7 @@ class CreateSleepOperations < ActiveRecord::Migration[6.1]
       t.references :user
       t.datetime :sleep_time
       t.datetime :get_up_time
-      t.float :duration
+      t.float :duration, default: 0
 
       t.timestamps
     end

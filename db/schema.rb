@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2021_05_19_031244) do
     t.bigint "user_id"
     t.datetime "sleep_time"
     t.datetime "get_up_time"
-    t.float "duration"
+    t.float "duration", default: 0.0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_sleep_operations_on_user_id"
