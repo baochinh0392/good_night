@@ -17,22 +17,34 @@ RSpec.configure do |config|
   config.swagger_docs = {
     'v1/swagger.yaml' => {
       swagger:     '2.0',
-      info: {
-        title: 'API V1',
-        version: 'v1',
+      # openapi: '3.0.1',
+      info:        {
+        title:       'Good night Project',
+        version:     'v1',
         description: 'Good night Backend first ruby version'
       },
-      paths: {},
-      servers: [
+      paths:       {},
+      servers:     [
         {
-          url: 'https://{defaultHost}',
+          url:       'http://{defaultHost}',
           variables: {
             defaultHost: {
               default: 'localhost:3000'
             }
           }
         }
-      ]
+      ],
+      definitions: {
+        ErrorResponse:        {
+          type:       :object,
+          properties: {
+            error:    { type: :boolean },
+            messages: {
+              type: :object
+            }
+          }
+        }
+      }
     }
   }
 

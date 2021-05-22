@@ -1,0 +1,495 @@
+---
+swagger: '2.0'
+info:
+  title: Good night Project
+  version: v1
+  description: Good night Backend first ruby version
+paths:
+  "/api/v1/users/{user_id}/friends/follow":
+    post:
+      summary: Follow a friend
+      tags:
+      - Friends
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        type: string
+        description: Id of user
+      - name: params
+        in: body
+        description: The user params to follow a friend.
+        schema:
+          type: object
+          properties:
+            friend_id:
+              type: integer
+          required:
+          - friend_id
+      responses:
+        '200':
+          description: Follow a friend is recorded
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  type:
+                    type: string
+                  attributes:
+                    type: object
+                    properties:
+                      user:
+                        type: object
+                        properties:
+                          data:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                              type:
+                                type: string
+                              attributes:
+                                type: object
+                                properties:
+                                  id:
+                                    type: integer
+                                  name:
+                                    type: string
+                                  email:
+                                    type: string
+                      friend:
+                        type: object
+                        properties:
+                          data:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                              type:
+                                type: string
+                              attributes:
+                                type: object
+                                properties:
+                                  id:
+                                    type: integer
+                                  name:
+                                    type: string
+                                  email:
+                                    type: string
+  "/api/v1/users/{user_id}/friends/unfollow":
+    post:
+      summary: Follow a friend
+      tags:
+      - Friends
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        type: string
+        description: Id of user
+      - name: params
+        in: body
+        description: The user params to unfollow a friend.
+        schema:
+          type: object
+          properties:
+            friend_id:
+              type: integer
+          required:
+          - friend_id
+      responses:
+        '200':
+          description: Unfollow a friend is recorded
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  type:
+                    type: string
+                  attributes:
+                    type: object
+                    properties:
+                      user:
+                        type: object
+                        properties:
+                          data:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                              type:
+                                type: string
+                              attributes:
+                                type: object
+                                properties:
+                                  id:
+                                    type: integer
+                                  name:
+                                    type: string
+                                  email:
+                                    type: string
+                      friend:
+                        type: object
+                        properties:
+                          data:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                              type:
+                                type: string
+                              attributes:
+                                type: object
+                                properties:
+                                  id:
+                                    type: integer
+                                  name:
+                                    type: string
+                                  email:
+                                    type: string
+  "/api/v1/users/{user_id}/sleep_operations/sleep":
+    post:
+      summary: Create a sleep operation
+      tags:
+      - Sleep Operations
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        type: string
+        description: Id of user
+      - name: sleep_params
+        in: body
+        description: The user params to create sleep operation.
+        schema:
+          type: object
+          properties:
+            sleep_time:
+              type: string
+          required:
+          - sleep_time
+      responses:
+        '200':
+          description: Sleep time is recorded
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  type:
+                    type: string
+                  attributes:
+                    type: object
+                    properties:
+                      sleep_time:
+                        type: string
+                      get_up_time:
+                        type:
+                        - 'null'
+                        - string
+                      duration:
+                        type:
+                        - 'null'
+                        - string
+                      created_at:
+                        type: string
+                      user:
+                        type: object
+                        properties:
+                          data:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                              type:
+                                type: string
+                              attributes:
+                                type: object
+                                properties:
+                                  id:
+                                    type: integer
+                                  name:
+                                    type: string
+                                  email:
+                                    type: string
+  "/api/v1/users/{user_id}/sleep_operations/get_up":
+    post:
+      summary: Update a sleep operation
+      tags:
+      - Sleep Operations
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        type: string
+        description: Id of user
+      - name: get_up_params
+        in: body
+        description: The user params to update the sleep record.
+        schema:
+          type: object
+          properties:
+            get_up_time:
+              type: string
+          required:
+          - get_up_time
+      responses:
+        '200':
+          description: Get up time is recorded
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  type:
+                    type: string
+                  attributes:
+                    type: object
+                    properties:
+                      sleep_time:
+                        type: string
+                      get_up_time:
+                        type:
+                        - 'null'
+                        - string
+                      duration:
+                        type:
+                        - 'null'
+                        - string
+                      created_at:
+                        type: string
+                      user:
+                        type: object
+                        properties:
+                          data:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                              type:
+                                type: string
+                              attributes:
+                                type: object
+                                properties:
+                                  id:
+                                    type: integer
+                                  name:
+                                    type: string
+                                  email:
+                                    type: string
+  "/api/v1/users/{user_id}/sleep_operations":
+    get:
+      summary: Get list sleep operations
+      tags:
+      - Sleep Operations
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        type: string
+        description: Id of user
+      responses:
+        '200':
+          description: Sleep operations are listed
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    type:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        sleep_time:
+                          type: string
+                        get_up_time:
+                          type:
+                          - 'null'
+                          - string
+                        duration:
+                          type:
+                          - 'null'
+                          - string
+                        created_at:
+                          type: string
+                        user:
+                          type: object
+                          properties:
+                            data:
+                              type: object
+                              properties:
+                                id:
+                                  type: string
+                                type:
+                                  type: string
+                                attributes:
+                                  type: object
+                                  properties:
+                                    id:
+                                      type: integer
+                                    name:
+                                      type: string
+                                    email:
+                                      type: string
+  "/api/v1/users/{user_id}/sleep_operations/list_friends":
+    get:
+      summary: Get list sleep operations of friends
+      tags:
+      - Sleep Operations
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        type: string
+        description: Id of user
+      responses:
+        '200':
+          description: Sleep operations of friends are listed
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    type:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        sleep_time:
+                          type: string
+                        get_up_time:
+                          type:
+                          - 'null'
+                          - string
+                        duration:
+                          type:
+                          - 'null'
+                          - string
+                        created_at:
+                          type: string
+                        user:
+                          type: object
+                          properties:
+                            data:
+                              type: object
+                              properties:
+                                id:
+                                  type: string
+                                type:
+                                  type: string
+                                attributes:
+                                  type: object
+                                  properties:
+                                    id:
+                                      type: integer
+                                    name:
+                                      type: string
+                                    email:
+                                      type: string
+  "/api/v1/users":
+    post:
+      summary: Create an user
+      tags:
+      - Users
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: user_params
+        in: body
+        description: The user params to create.
+        schema:
+          type: object
+          properties:
+            name:
+              type: string
+            email:
+              type: string
+          required:
+          - name
+          - email
+      responses:
+        '200':
+          description: User is created
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  type:
+                    type: string
+                  attributes:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      name:
+                        type: string
+                      email:
+                        type: string
+servers:
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: localhost:3000
+definitions:
+  ErrorResponse:
+    type: object
+    properties:
+      error:
+        type: boolean
+      messages:
+        type: object

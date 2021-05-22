@@ -10,7 +10,7 @@
 
 ## Enter web containter
 - Show hint: ```make```
-- Enter web console: ```make console``
+- Enter web console: ```make console```
 - Enter container: ```make bash```
 
 ## API docs

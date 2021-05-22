@@ -39,6 +39,10 @@ group :development do
   gem 'dotenv-rails'
 end
 
+group :test do
+  gem 'database_cleaner-active_record', '1.8.0'
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'sidekiq', '6.1.2'# Simple, efficient background processing for Ruby

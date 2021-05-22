@@ -5,10 +5,10 @@ describe 'Users API' do
       consumes 'application/json'
       produces 'application/json'
 
-      parameter name: :user_params, in: :body, description: 'The user params to create.', schema: V1::SwaggerSchemas::Users::PARAMS
+      parameter name: :user_params, in: :body, description: 'The user params to create.', schema: V1::SwaggerSchemas::Users::USER_PARAMS
 
       response '200', 'User is created' do
-        schema(V1::SwaggerSchemas::Users::RESPONSE)
+        schema(V1::SwaggerSchemas::Users::USER_RESPONSE)
         let(:user_params){
           {
             "name": Faker::Name.name,
